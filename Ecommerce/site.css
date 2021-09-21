@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search input {
+    width: 25rem;
+}
+
+.productcards .card {
+    width: 30%;
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    padding: 0.5rem 0.5rem;
+}
+
+.productcards .card img {
+    height: 15rem;
+}
+
+.cartcanvas {
+    height: 70vh;
+}
+
+p {
+    height: 60px;
+    line-height: 20px;
+    /* Height / no. of lines to display */
+    overflow: hidden;
+}
+
+.removetocartbtn {
+    display: none;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (max-width: 768px) {
+    .search input {
+        width: 14rem;
+    }
+    .productcards .card {
+        width: 49%;
+    }
+    .addtocartbtn {
+        font-size: 0.5rem;
+        margin: -1.3rem 0rem 0rem 1.5rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-text {
+        font-size: 0.7rem;
+    }
+    .productcards .card img {
+        height: 10rem;
+    }
+    .removetocartbtn {
+        font-size: 0.4rem;
+        margin: -1.3rem 0rem 0rem 1.5rem;
+    }
+}

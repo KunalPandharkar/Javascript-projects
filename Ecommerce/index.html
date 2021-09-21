@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="site.css">
+    <title>Ecommerce - Using JS</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">KPECOM</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Products</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex me-auto search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                <a class="nav-link text-white fw-bolder" href="#">CART( <span id="cartcount">0</span> )</a>
+            </div>
+        </div>
+
+
+    </nav>
+
+
+
+
+    <!-- <button class="btn btn-primary" type="button" >Toggle top offcanvas</button> -->
+
+    <div class="cartcanvas offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasTopLabel">Your Cart</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <div class="productcards container d-flex justify-content-between flex-wrap mt-4" id="cartitems">
+                <!-- <div class="card">
+                    <img src="images/photo-1505740420928-5e560c06d30e.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung Galaxy Note 20 </h5>
+                        <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+                            corrupti tempora itaque earum eligendi dolorum ex deleniti provident eos voluptatum?
+                            Doloremque quaerat non, vero soluta at quas commodi minus aut.
+                        </p>
+                        <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">-</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/shoes.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Shoes nike 455</h5>
+                        <p class="card-text">shoes nike 555 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Dolor voluptatum fugiat exercitationem animi quo repellat blanditiis perspiciatis velit
+                            cupiditate ducimus itaque, nesciunt aperiam in beatae vero magni nostrum quibusdam! Alias.
+                        </p>
+                        <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/sam1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Hydren Olive Oil</h5>
+                        <p class="card-text">Hydren Olive Oil. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Earum, atY HJ RYTUH RTYU HDRYTH RD6UY HWque voluptatemEWD QEWDEWDSte.
+                        </p> <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/
+                        </span>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/5def862ab67e21987db97ca9_Featured_October_1 (1).png" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sam Hair Oil</h5>
+                        <p class="card-text">Sam Hair Oil Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Neque illum iusto quos, laborum sit sunt aperiam quae inventore, suscipit quo officia animi
+                            perspiciatis deleniti laboriosam nisi commodi iste nesciunt velit! lujfdgaddDd</p>
+                        <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/cool.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cocoil Massage oil</h5>
+                        <p class="card-text">Cocoil Massage oil Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Inventore minus doloribus maxime dolorum explicabo eius voluptatem autem ad reprehenderit
+                            similique dignissimos sunt sapiente, nisi architecto quos quibusdam necessitatibus ipsa
+                            nam..</p>
+                        <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/watch.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">KP Smart Watch</h5>
+                        <p class="card-text">KP Smart Watch Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Magnam, provident, pariatur fuga debitis inventore consequatur dolor maxime itaque eaque
+                            deleniti porro modi atque, asperiores vero veritatis neque! Doloremque, saepe fugit?</p>
+                        <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button>
+                            <input type="text" class="form-control" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="productcards container d-flex justify-content-between flex-wrap mt-4">
+        <div class="card">
+            <img src="images/photo-1505740420928-5e560c06d30e.jpg" class="card-img-top" alt="..." id="prodimg1">
+            <div class="card-body">
+                <h5 class="card-title" id="prodhead1">Samsung Galaxy Note 20 </h5>
+                <p class="card-text" id="proddescrption1"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur corrupti
+                    tempora itaque earum eligendi dolorum ex deleniti provident eos voluptatum? Doloremque quaerat non,
+                    vero soluta at quas commodi minus aut.
+                </p>
+                <span class="card-text mt-2">Price : <span class="fw-bolder text-success" id="prodprice1">12000</span>/
+                </span>
+                <a href="#" class="btn btn-primary btn-sm float-end addtocartbtn" onclick="addtocart(1)"
+                    id="prodaddcart1">Add To Cart</a>
+                <a href="#" class="btn btn-danger btn-sm float-end removetocartbtn" onclick="removefromcart(1)"
+                    id="prodremovecart1">Remove From Cart</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/shoes.jpg" class="card-img-top" alt="..." id="prodimg2">
+            <div class="card-body">
+                <h5 class="card-title" id="prodhead2">
+                    Shoes nike 455 Pro Edition</h5>
+                <p class="card-text" id="proddescrption2">shoes nike 555 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    voluptatum fugiat exercitationem animi quo repellat blanditiis perspiciatis velit cupiditate ducimus
+                    itaque, nesciunt aperiam in beatae vero magni nostrum quibusdam! Alias dfdfg ffdc efadfadf.</p>
+                <span class="card-text mt-2">Price : <span class="fw-bolder text-success"  id="prodprice2">12000</span>/ </span>
+                <a href="#" class="btn btn-primary btn-sm float-end addtocartbtn" onclick="addtocart(2)"  id="prodaddcart2">Add To Cart</a>
+                <a href="#" class="btn btn-danger btn-sm float-end removetocartbtn" onclick="removefromcart(2)"
+                id="prodremovecart2">Remove From Cart</a>
+            </div>
+        </div>
+        <!-- <div class="card">
+            <img src="images/sam1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Hydren Olive Oil</h5>
+                <p class="card-text">Hydren Olive Oil. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum,
+                    atY HJ RYTUH RTYU HDRYTH RD6UY HWque voluptatemEWD QEWDEWDSte.
+                </p> <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                <a href="#" class="btn btn-primary btn-sm float-end addtocartbtn" onclick="addtocart(3)">Add To Cart</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/5def862ab67e21987db97ca9_Featured_October_1 (1).png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Sam Hair Oil</h5>
+                <p class="card-text">Sam Hair Oil Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque illum
+                    iusto quos, laborum sit sunt aperiam quae inventore, suscipit quo officia animi perspiciatis
+                    deleniti laboriosam nisi commodi iste nesciunt velit! lujfdgaddDd</p>
+                <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                <a href="#" class="btn btn-primary btn-sm float-end addtocartbtn" onclick="addtocart(4)">Add To Cart</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/cool.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Cocoil Massage oil</h5>
+                <p class="card-text">Cocoil Massage oil Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Inventore minus doloribus maxime dolorum explicabo eius voluptatem autem ad reprehenderit similique
+                    dignissimos sunt sapiente, nisi architecto quos quibusdam necessitatibus ipsa nam..</p>
+                <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                <a href="#" class="btn btn-primary btn-sm float-end addtocartbtn" onclick="addtocart(5)">Add To Cart</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/watch.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">KP Smart Watch</h5>
+                <p class="card-text">KP Smart Watch Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam,
+                    provident, pariatur fuga debitis inventore consequatur dolor maxime itaque eaque deleniti porro modi
+                    atque, asperiores vero veritatis neque! Doloremque, saepe fugit?</p>
+                <span class="card-text mt-2">Price : <span class="fw-bolder text-success">12000</span>/ </span>
+                <a href="#" class="btn btn-primary btn-sm float-end addtocartbtn" onclick="addtocart(6)">Add To Cart</a>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <script src="site.js"></script>
+
+</body>
+
+</html>
