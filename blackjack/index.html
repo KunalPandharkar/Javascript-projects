@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Blackjack</title>
+</head>
+<style>
+    .main-c {
+        width: 350px;
+        border-radius: 5px;
+    }
+</style>
+
+<body class="bg-dark">
+
+    <div class="main-c container bg-light p-3 mt-4 text-center">
+        <div class="game-head mb-4">
+            <h3 class="fw-bold fst-italic">Blackjack</h3>
+        </div>
+        <div class="game-content mb-4">
+            <h5 id="message-text" class="mb-4">Want to play a round ?</h5>
+            <h5 id="card-text">Cards :</h5>
+            <h5 id="sum-text">Sum :</h5>
+        </div>
+        <div class="game-btn">
+            <button class="btn w-100 btn-danger fw-bolder mb-2" onclick="startgame()">Start Game</button>
+            <button class="btn w-100 btn-dark fw-bolder" onclick="newcard()">New Card</button>
+        </div>
+        <div class="player-data mt-3 text-danger text-capitalize">
+            <h5 id="player"></h5>
+        </div>
+    </div>
+
+
+    <script>
+
+        let cards = []
+        let sum = 0;
+        let hasBlackjack = false;
+        let live = false;
+        let message = "";
+
+        let messagetext = document.getElementById('message-text');
+        let cardtext = document.getElementById('card-text')
+        let sumtext = document.getElementById('sum-text');
+
+
+        let player = {
+            pname: "sam",
+            value: 145
+        }
+
+        let playertext = document.getElementById('player');
+        playertext.textContent = player.pname + " : ₹" + player.value;
+
+
+        function getRandom() {
+
+            let randomNo = Math.floor(Math.random() * 13) + 1;
+
+            if (randomNo === 1) {
+                return 11;
+            }
+            else if (randomNo >= 11 && randomNo <= 13) {
+                return 10;
+            } else {
+                return randomNo;
+            }
+
+        }
+
+        function startgame() {
+            live = true;
+            let fcard = getRandom();
+            let scard = getRandom();
+            cards = [fcard, scard]
+            sum = fcard + scard;
+            start()
+        }
+
+
+        function start() {
+
+            cardtext.textContent = "Cards : ";
+
+            for (let i = 0; i < cards.length; i++) {
+                cardtext.textContent += cards[i] + " ";
+            }
+
+            sumtext.textContent = "Sum : " + sum;
+
+            if (sum < 21) {
+                message = "Want to draw a new card ?";
+            }
+            else if (sum === 21) {
+                message = "Great ! You have a Blackjack.";
+                hasBlackjack = true;
+            }
+            else {
+                message = "Ohh ! you're out of the game.";
+                live = false;
+            }
+
+            messagetext.textContent = message;
+        }
+
+
+        function newcard() {
+
+            if (live === true && hasBlackjack === false) {
+                let card = getRandom();
+                sum += card;
+                cards.push(card);
+                start()
+            }
+            else {
+                alert("You're out of the game you have to restart your game !")
+            }
+        }
+
+    </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
