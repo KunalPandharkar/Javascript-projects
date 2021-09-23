@@ -1,0 +1,41 @@
+.container {
+    width: 36rem;
+    padding: 1.5rem 1rem 0rem 1rem;
+    background-color: black;
+    margin-top: 1rem;
+}
+
+input {
+    padding: 0.7rem;
+    border-radius: 6px;
+    width: 20rem;
+}
+
+button {
+    padding: 0.7rem;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-right: 12px;
+    margin-top: 12px;
+    width: 7rem
+}
+
+#saveinputbtn {
+    background-color: green;
+}
+
+#savetabbtn {
+    background-color: blue;
+}
+
+#deleteallbtn {
+    background-color: red;
+}
+
+#tablinksaved {
+    color: white;
+    padding-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
