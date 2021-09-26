@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+:root {
+  --blue: #4156a7;
+  --grey: #def0fc;
+  --orange: #f7ca00;
+}
+
+.catname p {
+  margin: 0;
+  padding: 0;
+}
+
+.catcard {
+  height: 5rem;
+  width: 30%;
+  background-color: white;
+  padding: 1rem;
+  margin-top: 1rem
+}
+
+.catpic img {
+  height: 4.5rem;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.bestcategories {
+  background-color: rgb(236, 228, 218);
+}
+
+.catname p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.prodheading {
+  font-size: 1.2rem
+}
+
+.prodinfo {
+  font-size: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+}
+
+.cartmain {
+  height: 70%;
+}
+
+.profile {
+  width: 50%;
+}
+
+.alert-success {
+  background-color: green;
+  border: none;
+  color: white;
+  height: 3.2rem;
+  font-size: 1rem;
+}
+
+#removecartbtn {
+  display: none;
+}
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+  .carousel-item img {
+    height: 13rem;
+    width: 100%
+  }
+  .catcard {
+    height: 5rem;
+    width: 49%;
+    padding: 1rem;
+    margin-top: 0;
+  }
+  .catpic img {
+    height: 4rem;
+    text-align: center;
+  }
+  .bestcategories {
+    background-color: rgb(236, 228, 218);
+  }
+  .catname p {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .last {
+    display: none;
+  }
+  .prodheading {
+    font-size: 0.8rem
+  }
+  .prodinfo {
+    font-size: 0.6rem;
+  }
+  .addtocartbtn {
+    font-size: 0.6rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+  .qunaityinp input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.6rem;
+    opacity: 1;
+    /* Firefox */
+  }
+  .profile {
+    width: 90%;
+  }
+  .price {
+    font-size: 0.7rem;
+  }
+  .alert-success {
+    height: 3rem;
+    font-size: 0.89rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+  #carouselExampleIndicators {
+    width: 100%;
+  }
+  .bestcategories {
+    width: 100%;
+    padding: 2rem
+  }
+  .carousel-item img {
+    height: 30rem;
+    width: 100%
+  }
+}

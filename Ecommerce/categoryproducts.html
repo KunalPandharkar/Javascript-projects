@@ -11,7 +11,7 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- material icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <title>Ecommerce - Using JS !</title>
 </head>
@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">KPECOM</a>
+            <a class="navbar-brand" href="index.html">KPECOM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -29,9 +29,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
-            
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Categories</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="userprofile.html">Profile</a>
                     </li>
@@ -47,57 +49,32 @@
                 <span class="material-icons text-white">
                     shopping_bag
                 </span>
-                <a class="nav-link text-white p-0 fs-5 fw-bold mt-1">Cart ( <span id="cartvalue">0</span> )</a>
+                <a class="nav-link text-white p-0 fs-5 fw-bold mt-1">Products ( <span id="cartvalue">0</span> )</a>
             </div>
         </div>
 
     </nav>
     <!-- main sectoin -->
 
-    <div class="hero container-fluid d-lg-flex justify-content-center p-0">
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
 
+    <!-- all products -->
+    <div class="album py-5 bg-light">
+
+        <div class="container">
+            <div class="heading">
+                <p id="infocatname">All Products</p>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/5def862ab67e21987db97ca9_Featured_October_1 (1).png" class="d-block" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/photo-1505740420928-5e560c06d30e.jpg" class="d-block" alt="...">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-3" id="categoryproducts">
+                <div class="spinner-grow text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-
     </div>
 
+    <!-- cart -->
 
-    <div class="container mt-4 mb-4">
-        <div class="heading">
-            <p id="infocatname">All Categories</p>
-        </div>
-        <div class="bestcategories d-flex flex-wrap justify-content-around" id="bestcategories">
-            <div class="spinner-grow text-danger" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-
-    </div>
 
     <div class="cartmain offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
         <div class="offcanvas-header">
@@ -118,8 +95,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="text-center mt-4">
-                <button class="btn btn-primary" id="sendmail">Proceed To Buy</button>
+                <button class="btn btn-primary">Proceed To Buy</button>
             </div>
 
         </div>
@@ -131,6 +109,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+
+
 
 
 
@@ -157,77 +137,41 @@
         const database = getDatabase();
 
         const searchbox = document.getElementById("searchbox")
-        const bestcategories = document.getElementById("bestcategories")
+
         searchbox.value = localStorage.getItem("User")
-        let maincategories = []
         let products = []
+
+        const infocatname = document.getElementById("infocatname")
+        infocatname.innerText = localStorage.getItem("categoryinfopage")
+        const categoryproducts = document.getElementById("categoryproducts")
+        const categoryname = localStorage.getItem("categoryinfopage")
+
         const dbRef = ref(getDatabase());
 
-        let LoadCategories = () => {
-            maincategories = []
-            get(child(dbRef, `categories/`)).then((snapshot) => {
+        let Loadproducts = () => {
+            products = []
+            get(child(dbRef, `categories/${categoryname}/products/`)).then((snapshot) => {
                 if (snapshot.exists()) {
                     snapshot.forEach(function (childSnapshot) {
                         var childData = childSnapshot.val();
-                        maincategories.push(childData.category)
+                        products.push(childData)
                     })
 
                 } else {
                     console.log("No data available");
                 }
             }).then(() => {
-                initilizecategories()
-                Loadproducts()
+                initilizeproducts()
+                initializecart()
             }).catch((error) => {
                 console.error("error is " + error);
             });
 
         }
 
-        let initilizecategories = () => {
-
-            let str = ""
-            for (let i = 0; i < maincategories.length; i++) {
-                str += `
-                <a href="categoryproducts.html"
-                <div class="catcard" onclick="GetallProducts('${maincategories[i]}')">
-                    <div class="catname text-center">
-                        <p>${maincategories[i]}</p>
-                    </div>
-                    </div>
-                    </a>
-                `
-            }
-            bestcategories.innerHTML = str
-        }
-        LoadCategories()
-
-        let Loadproducts = () => {
-            products = []
-            for (let i = 0; i < maincategories.length; i++) {
-                get(child(dbRef, `categories/${maincategories[i]}/products/`)).then((snapshot) => {
-                    if (snapshot.exists()) {
-                        snapshot.forEach(function (childSnapshot) {
-                            var childData = childSnapshot.val();
-                            products.push(childData)
-                        })
-                    } else {
-                        console.log("No data available");
-                    }
-                }).then(() => {
-                    initializecart()
-                }).catch((error) => {
-                    console.error("error is " + error);
-                });
-            }
-
-
-        }
-
 
 
         let cartitems = []
-
         const yourcart = document.getElementById("yourcart")
 
         cartitems = JSON.parse(localStorage.getItem("CartItems"))
@@ -251,15 +195,10 @@
 
 
                                         </div>
-                                        <div class="input-group input-group-sm qunaityinp">
-
-                                            <input type="text" class="form-control" placeholder="Quanitity"
-                                                aria-label="Sizing example input"
-                                                aria-describedby="inputGroup-sizing-sm">
-                                        </div>
-
+                                        
+                                        <span class="price fw-bold text-danger"><span>${products[i].Productprice}</span> ₹ </span>
                                     </div>
-                                    <span class="price fw-bold text-danger"><span>${products[i].Productprice}</span> ₹ </span>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -278,14 +217,87 @@
 
 
 
+
+
+
+
+        let initilizeproducts = () => {
+            let str = ""
+            let check = false
+            for (let i = 0; i < products.length; i++) {
+
+
+                if (localStorage.getItem("CartItems")) {
+                    for (let j = 0; j < cartitems.length; j++) {
+                        if (cartitems[j] === products[i].Productname) {
+                            console.log("cart" + products[i].Productname)
+                            str += `
+              <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/5def862ab67e21987db97ca9_Featured_October_1 (1).png" alt="">
+
+                        <div class="card-body">
+                            <p class="card-text fw-bold prodheading">${products[i].Productname}</p>
+                            <p class="card-text prodinfo">${products[i].ProductDescription}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                       <button type="button" id="removecartbtn" class="btn btn-sm btn-danger addtocartbtn" style="display:block" onclick="removefromcart('${products[i].Productname}')">Remove</button>
+                                </div>
+
+                                <span class="price fw-bold text-danger"><span>${products[i].Productprice}</span> ₹ </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `
+                            check = true
+                            break
+                        }
+                    }
+                }
+
+                if (!check) {
+
+                    str += `
+              <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="images/5def862ab67e21987db97ca9_Featured_October_1 (1).png" alt="">
+
+                        <div class="card-body">
+                            <p class="card-text fw-bold prodheading">${products[i].Productname}</p>
+                            <p class="card-text prodinfo">${products[i].ProductDescription}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" onclick="addtocart('${products[i].Productname}')" id="addcartbtn" class="btn btn-sm btn-success addtocartbtn">Add To
+                                        Cart</button>
+                                        <button type="button" id="removecartbtn" class="btn btn-sm btn-danger addtocartbtn" >Remove From Cart</button>
+                                </div>
+
+                                <span class="price fw-bold text-danger"><span>${products[i].Productprice}</span> ₹ </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `
+
+                } else {
+                    check = false
+                }
+
+            }
+            categoryproducts.innerHTML = str
+        }
+        Loadproducts()
+
+        // load cart
+
+
+
     </script>
 
     <script>
-        function GetallProducts(categoryname) {
-            localStorage.setItem("categoryinfopage", categoryname)
-        }
-
-
         if (localStorage.getItem("CartItems")) {
             let cartcount = []
             cartcount = JSON.parse(localStorage.getItem("CartItems"))
@@ -321,29 +333,8 @@
             localStorage.setItem("CartItems", JSON.stringify(prodarr))
             location.reload();
         }
-
-        const sendmail = document.getElementById("sendmail")
-
-        sendmail.addEventListener("click", () => {
-            emailjs.init("user_V8F6oXyXrNq05eaePZcPr");
-            var templateParams = {
-                name: localStorage.getItem("User"),
-                message: 'Your Orders Placed Successfully!'
-            };
-
-            emailjs.send('service_0qc98gv', 'template_ft95qmv', templateParams)
-                .then(function (response) {
-                    window.alert("Your Orders Placed Successfully !");
-                    localStorage.removeItem("CartItems")
-                }, function (error) {
-                    console.log('FAILED...', error);
-                });
-
-        })
-
-
-
     </script>
+
 
 </body>
 
