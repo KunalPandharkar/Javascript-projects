@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Task Planner</title>
+</head>
+
+<body>
+
+
+    <div class=" appheadcont container sticky-top bg-white pb-2">
+        <div class="apphead">
+            <div class="appheadpart">
+                <div class="appheadpart-item">
+                    <h3>Today</h3>
+                    <p class="mb-0 text-secondary">29 Sep 2021, Wednesday</p>
+                </div>
+                <div class="appheadpart-item">
+                    <span class="material-icons text-secondary" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+                        date_range
+                    </span>
+                </div>
+            </div>
+            <div class="appsearchcont mt-3">
+                <input class="form-control form-control-sm" list="datalistOptions" id="exampleDataList"
+                    placeholder="Search">
+                <datalist id="datalistOptions">
+                    <option value="coding">
+                    <option value="drawing">
+                    <option value="singing">
+                </datalist>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal for sidebar starts-->
+    <div class="offcanvas offcanvas-end modal-sidebar text-light" data-bs-scroll="true" tabindex="-1" id="sidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">All Dates</h5>
+
+        </div>
+        <div class="offcanvas-body">
+            <p class="mb-0">Today</p>
+            <hr>
+            <p class="mb-0">1 Oct 2021</p>
+            <hr>
+            <p class="mb-0">3 Oct 2021</p>
+        </div>
+    </div>
+    <!-- modal for sidebar ends-->
+
+
+    <section>
+        <div class="container">
+            <div class="categorycont mt-2">
+                <div class="category-item">
+                    <button type="button" class="btn btn-sm">
+                        Pending <span class="badge">3</span>
+                    </button>
+                </div>
+                <div class="category-item">
+                    <button type="button" class="btn btn-sm">
+                        Completed <span class="badge">1</span>
+                    </button>
+                </div>
+                <div class="category-item">
+                    <button type="button" class="btn btn-sm">
+                        College <span class="badge">2</span>
+                    </button>
+                </div>
+                <div class="category-item">
+                    <button type="button" class="btn btn-sm">
+                        Tution <span class="badge">4</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="taskscont mt-3">
+                <!-- completed task -->
+                <div class="task-item mb-4">
+                    <div class="taskitem-part1">
+                        <div id="dot5" class="dot">
+                            &#10003;
+                        </div>
+                    </div>
+                    <div class="taskitem-part2">
+                        <h6>Project daily stand-up</h6>
+                        <p class="mb-0 text-secondary">At the conference center</p>
+                    </div>
+                    <div class="taskitem-part3">
+                        <p class="mb-0 text-secondary">Due On</p>
+                        <p class="mb-0 text-secondary">29 Sep, 10:00</p>
+                    </div>
+                </div>
+
+                <!-- priority wise tasks -->
+                <div class="task-item mb-4">
+                    <div class="taskitem-part1">
+                        <div id="dot1" class="dot">H</div>
+                    </div>
+                    <div class="taskitem-part2">
+                        <h6>Project daily stand-up</h6>
+                        <p class="mb-0 text-secondary">At the conference center</p>
+                    </div>
+                    <div class="taskitem-part3">
+                        <p class="mb-0 text-secondary">Due On</p>
+                        <p class="mb-0 text-secondary">29 Sep, 10:00</p>
+                    </div>
+                    <div class="taskitem-part4">
+                       
+                        <span class="material-icons text-secondary" data-bs-toggle="modal"
+                            data-bs-target="#edittaskModal">
+                            edit
+                        </span>
+                        <span class="material-icons text-danger">
+                            delete
+                        </span>
+                    </div>
+                </div>
+
+                <div class="task-item mb-4">
+                    <div class="taskitem-part1">
+                        <div id="dot2" class="dot">M</div>
+                    </div>
+                    <div class="taskitem-part2">
+                        <h6>Project daily stand-up</h6>
+                        <p class="mb-0 text-secondary">At the conference center</p>
+                    </div>
+                    <div class="taskitem-part3">
+                        <p class="mb-0 text-secondary">Due On</p>
+                        <p class="mb-0 text-secondary">29 Sep, 10:00</p>
+                    </div>
+                    <div class="taskitem-part4">
+                     
+                        <span class="material-icons text-secondary" data-bs-toggle="modal"
+                            data-bs-target="#edittaskModal">
+                            edit
+                        </span>
+                        <span class="material-icons text-danger">
+                            delete
+                        </span>
+                    </div>
+                </div>
+
+                <div class="task-item mb-4">
+                    <div class="taskitem-part1">
+                        <div id="dot3" class="dot">L</div>
+                    </div>
+                    <div class="taskitem-part2">
+                        <h6>Project daily stand-up</h6>
+                        <p class="mb-0 text-secondary">At the conference center</p>
+                    </div>
+                    <div class="taskitem-part3">
+                        <p class="mb-0 text-secondary">Due On</p>
+                        <p class="mb-0 text-secondary">29 Sep, 10:00</p>
+                    </div>
+                    <div class="taskitem-part4">
+                       
+                        <span class="material-icons text-secondary" data-bs-toggle="modal"
+                            data-bs-target="#edittaskModal">
+                            edit
+                        </span>
+                        <span class="material-icons text-danger">
+                            delete
+                        </span>
+                    </div>
+                </div>
+
+                <div class="task-item mb-4">
+                    <div class="taskitem-part1">
+                        <div id="dot4" class="dot"></div>
+                    </div>
+                    <div class="taskitem-part2">
+                        <h6>Project daily stand-up</h6>
+                        <p class="mb-0 text-secondary">At the conference center</p>
+                    </div>
+                    <div class="taskitem-part3">
+                        <p class="mb-0 text-secondary">Due On</p>
+                        <p class="mb-0 text-secondary">29 Sep, 10:00</p>
+                    </div>
+                    <div class="taskitem-part4">
+                        
+                        <span class="material-icons text-secondary" data-bs-toggle="modal"
+                            data-bs-target="#edittaskModal">
+                            edit
+                        </span>
+                        <span class="material-icons text-danger">
+                            delete
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Modal for edit task-->
+    <div class="modal fade" id="edittaskModal" tabindex="-1" aria-labelledby="edittaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content small edit-taskmodal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="p-3">
+                    <form action="">
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-sm" placeholder="Project meeting">
+                        </div>
+                        <div class="mb-3">
+                            <textarea rows="2" class="form-control form-control-sm"
+                                placeholder="at the conference hall"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-sm" placeholder="meeting">
+                        </div>
+
+                        <hr>
+
+                        <label for="" class="small">Priority</label>
+                        <div class="addtask-priority small">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">High</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Medium</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                    value="option3">
+                                <label class="form-check-label" for="inlineRadio3">Low</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                                    value="option4">
+                                <label class="form-check-label" for="inlineRadio4">None</label>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <label for="" class="small">Due On</label>
+                        <div class="row mt-3">
+                            <div class="col-6">
+                                <input type="date" class="form-control form-control-sm"
+                                    placeholder="Type to add new task">
+                            </div>
+                            <div class="col-6">
+                                <input type="time" class="form-control form-control-sm"
+                                    placeholder="Type to add new task">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <label for="" class="small">Remind On</label>
+                        <div class="row mt-3">
+                            <div class="col-6">
+                                <input type="date" class="form-control form-control-sm"
+                                    placeholder="Type to add new task">
+                            </div>
+                            <div class="col-6">
+                                <input type="time" class="form-control form-control-sm"
+                                    placeholder="Type to add new task">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="addtaskbutton">
+                            <button type="button" class="btn btn-sm bgteal"> &#10003; Mark as Completed</button>
+                            <button type="button" class="btn btn-sm bgred">Edit Task</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="addtaskcont">
+            <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#addtask">+ Add new task</button>
+        </div>
+    </section>
+
+
+    <!-- modal for adding task starts-->
+    <div class="offcanvas offcanvas-bottom modal-addtask" data-bs-scroll="true" tabindex="-1" id="addtask">
+        <div data-bs-dismiss="offcanvas" aria-label="Close">
+            <div class="line"></div>
+        </div>
+        <div class="offcanvas-body">
+            <form action="">
+                <div class="addtask-form">
+                    <input type="text" class="form-control form-control-sm" placeholder="Type to add task title ...">
+                </div>
+                <div class="addtask-form">
+
+                    <textarea rows="2" class="form-control form-control-sm"
+                        placeholder="Type to add task description ..."></textarea>
+                </div>
+
+                <div class="addcategory">
+                    <button type="button" class="btn btn-light btn-sm">College</button>
+                    <button type="button" class="btn btn-light btn-sm">Meeting</button>
+                    <button type="button" class="btn btn-light btn-sm">Tution</button>
+                    <button type="button" class="btn btn-light btn-sm">College</button>
+                    <button type="button" class="btn btn-light btn-sm">Meeting</button>
+                    <button type="button" class="btn btn-sm text-light p-0" data-bs-toggle="modal"
+                        data-bs-target="#addcategoryModal">
+                        <span class="material-icons">
+                            add_box
+                        </span>
+                    </button>
+                </div>
+
+                <hr>
+
+                <label for="" class="small">Priority</label>
+                <div class="addtask-priority small">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">High</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Medium</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3">
+                        <label class="form-check-label" for="inlineRadio3">Low</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                            value="option4">
+                        <label class="form-check-label" for="inlineRadio4">None</label>
+                    </div>
+                </div>
+
+                <hr>
+
+                <label for="" class="small">Due On</label>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <input type="date" class="form-control form-control-sm" placeholder="Type to add new task">
+                    </div>
+                    <div class="col-6">
+                        <input type="time" class="form-control form-control-sm" placeholder="Type to add new task">
+                    </div>
+                </div>
+
+                <hr>
+
+                <label for="" class="small">Remind On</label>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <input type="date" class="form-control form-control-sm" placeholder="Type to add new task">
+                    </div>
+                    <div class="col-6">
+                        <input type="time" class="form-control form-control-sm" placeholder="Type to add new task">
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="addtaskbutton">
+                    <button type="button" class="btn btn-sm bgred">Add Task</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- modal for adding task ends-->
+
+
+    <!-- Modal for add category-->
+    <div class="modal fade" id="addcategoryModal" tabindex="-1" aria-labelledby="addcategoryModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content small">
+                <form action="">
+                    <div class="modal-body pt-4 pb-4">
+                        <input type="text" class="form-control form-control-sm" placeholder="Type to add new Category">
+                    </div>
+                    <div class="modal-footer">
+                        <div class="addtaskbutton">
+                            <button type="button" class="btn btn-sm">Add Category</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
