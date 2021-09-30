@@ -15,10 +15,10 @@ body {
   --orange: #ff5733;
   --teal: #2783f3;
 }
-.bgred{
+.bgred {
   background-color: var(--red);
 }
-.bgteal{
+.bgteal {
   background-color: var(--teal);
 }
 p {
@@ -207,20 +207,24 @@ p {
 
 @media only screen and (min-device-width: 800px) and (max-device-width: 1500px) {
   section {
-    padding-left: 260px;
-    padding-right: 260px;
+    padding-left: 350px;
+    padding-right: 350px;
   }
   .addtaskcont {
     position: relative;
   }
   .appheadcont {
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 290px;
+    padding-right: 290px;
   }
   span:hover {
     cursor: pointer;
   }
   .modal-sidebar {
     width: 20vw;
+  }
+  .modal-addtask {
+    height: 100vh;
+    width: 350px;
   }
 }
